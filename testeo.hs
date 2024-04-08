@@ -36,8 +36,22 @@ perteneceInter x| x < 3 = 1
 
 -- g) sumaDistintos
 sumaDistintos :: Int -> Int -> Int -> Int
-sumaDistintos x y z| x + y + z
+sumaDistintos x y z| x /= y && x /= z && y /= z = x + y + z
+                   | x == y && x == z = 0
                    | x == y = x + z
                    | x == z = x + y
                    | y == z = x + y
-                   | x == y == z = 0
+-- h) esMultiploDe
+esMultiploDe :: Int -> Int -> Bool
+esMultiploDe x y| x `mod` y == 0 = True
+                | otherwise = False
+                
+-- i) digitoUnidades
+--digitoUnidades = [1,2]            <-- En que caso es esto incorrecto? No cumple acaso con la condicion?
+--extraigoUno = drop 1 digitoUnidades
+digitoUnidades :: Int -> Int
+digitoUnidades x = x `mod` 10 
+
+-- j) digitoDecenas
+digitoDecenas :: Int -> Int
+digitoDecenas x = digitoUnidades (div x 10)
