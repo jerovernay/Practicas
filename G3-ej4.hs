@@ -37,3 +37,9 @@ posPrimerPar (x, y, z)| esPar x && x /= 0 = 1
                       where esPar x = x `mod` 2 == 0 -- existe la funcion even x, se puede usar?
 
 -- g) crearPar :: a ->b ->(a, b): crea un par a partir de sus dos componentes dadas por separado (debe funcionar para elementos de cualquier tipo).
+crearPar :: a -> b -> (a, b)
+crearPar a b = (a, b)
+
+-- h) invertir :: (a, b) ->(b, a): invierte los elementos del par pasado como par´ametro (debe funcionar para elementos de cualquier tipo).
+invertirFunc :: (a, b) -> (b, a)
+invertirFunc (a, b) = (b, a)
