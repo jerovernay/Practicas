@@ -18,7 +18,7 @@ f x| x <= 7 = x^2
 
 g :: Int -> Int
 g x| mod x 2 == 0 = x\2
-   | otherwise = 3*x + 1
+   | otherwise = 3*n + 1
 
 todosMenores :: (Int, Int, Int) -> Bool
 todosMenores (x, y, z)| f(x) > g(x) && f(y) > g(y) && f(z) > g(z) = True
