@@ -9,3 +9,8 @@
 --distanciaManhattan ((-1), 0, (-8.5)) (3.3, 4, (-4)) ⇝ 12.8
 
 distanciaManhattan :: (Float, Float, Float) ->(Float, Float, Float) ->Float
+distanciaManhattan (x, y, z) (a, b, c) = absoluto (x - a) + absoluto (y - b) + absoluto (z - c)
+
+absoluto :: Float -> Float
+absoluto x| x >= 0 = x
+          | otherwise = -x
