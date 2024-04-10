@@ -8,4 +8,8 @@
 --bisiesto 1900 ⇝ False, bisiesto 2000 ⇝ True.
 
 bisiesto :: Int -> Bool
-bisiesto n| 
+bisiesto n| not (esMultiplo n 4) || esMultiplo n 100 && not (esMultiplo n 400) = False
+          | otherwise = True
+
+esMultiplo :: Int -> Int -> Bool
+esMultiplo x y = mod x y == 0
