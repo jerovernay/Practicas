@@ -6,4 +6,4 @@ sumaImpares n
              | 2*n - 1 <= 0 = 0
              | 2*n - 1 == 1 = 1
              | otherwise = sumaImpares n + sumaImpares(n - 1) + sumaImpares(n - 2)
-    -- no me sale
+    -- no me sale!
