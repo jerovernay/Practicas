@@ -1,14 +1,8 @@
 {- Ejercicio 9. Implementar una funcion esCapicua :: Integer ->Bool que dado n ∈ N≥0 determina si n es un numero capicua. -}
 
+darVuelta :: Int -> Int -> Int
+darVuelta 0 m = m
+darVuelta n m = darVuelta (div n 10) (m * 10 + (n `mod` 10))
+
 esCapicua :: Int -> Bool
-esCapicua x| x < 10 = True
-           
-ultimoDigito :: Int -> Int 
-ultimoDigito x = mod x 10
-
-primerDigito :: Int -> Int
-primerDigito x| x < 10 = x
-              | otherwise = primerDigito(div x 10)
-
-sacarDigito :: Int -> Int
-sacarDigito x = 
+esCapicua n = n == darVuelta n 0
