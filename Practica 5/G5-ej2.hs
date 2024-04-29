@@ -88,8 +88,13 @@ mismosElementosAux l1 (x:xs) l2 (y:ys)
 
 -- 9. capicua :: (Eq t) => [t] -> Bool seg´un la siguiente especificaci´on:
 
-capicua :: (Eq t) => [t] -> Bool
+{- capicua :: (Eq t) => [t] -> Bool
 capicua [] = False
 capicua [x] = True                                      -- Aclaro en caso de que solo haya o un caracter o un numero solo. Como no se la regla general dee capìcua, supongo que es "True", porque se lee de la misma forma para mabos lados
 capicua (x:xs) | reverso (x:xs) == (x:xs) = True
                | otherwise = False
+ -}                                         -- Puede hacerse el mismo caso mas simple. 
+capicua :: (Eq t) => [t] -> Bool
+capicua [] = False                                    
+capicua l = reverso l == l
+
