@@ -1,4 +1,5 @@
 module Hoy where
+
 --Ejercicio 1
 {- problema relacionesValidas (relaciones: seq⟨String x String⟩) : Bool {
   requiere: {True}
@@ -8,7 +9,7 @@ module Hoy where
  -}
 
 -- No hay tuplas repetidas
--- No hay tuplas iguales, tal que (a,a) o (b,b)
+-- No hay tuplas iguales, tal que (a,a) o (b,b) o (a, b), si solo si existe (b,a)
 
 relacionesValidas :: [(String, String)] -> Bool
 relacionesValidas [] = False
@@ -25,8 +26,7 @@ problema personas (relaciones: seq⟨String x String⟩) : seq⟨String⟩ {
   asegura: {res no tiene elementos repetidos}
   asegura: {res tiene exactamente los elementos que figuran en alguna tupla de relaciones, en cualquiera de sus posiciones} -}
 
--- Usar la funcion anterior
--- Pasar de una lista de tuplas a una lista singu
+-- Pasar de una lista de tuplas a una lista singular
 
 personas :: [(String, String)] -> [String]
 personas [] = ["nadie"]
@@ -54,8 +54,36 @@ problema amigosDe (persona: String, relaciones: seq⟨String x String⟩) : seq�
   requiere: {relacionesValidas(relaciones)}
   asegura: {res tiene exactamente los elementos que figuran en las tuplas de relaciones en las que una de sus componentes es persona} -}
 
-{- amigosDe :: String -> [(String, String)] -> [String]
+amigosDe :: String -> [(String, String)] -> [String]
 amigosDe "nadie" [] = ["nadie"]
-amigosDe " " [] = []
-amigosDe persona ((a,b):xs)
-    | persona == a =  -}
+amigosDe persona ((a,b):xs) = amigosDeAux persona ((a,b):xs) []
+
+amigosDeAux :: String -> [(String,String)] -> [String] -> [String] 
+amigosDeAux _ [] [] = []
+amigosDeAux _ [x] y = y
+amigosDeAux persona ((a,b):xs) l1
+  | persona == a && not (pertenece b l1) = amigosDeAux persona xs (b:l1)
+  | persona == b && not (pertenece a l1) = amigosDeAux persona xs (a:l1)
+  | otherwise = amigosDeAux persona xs l1
+
+
+{- Ejercicio 4
+problema personaConMasAmigos (relaciones: seq⟨String x String⟩) : String {
+  requiere: {relaciones no vacía}
+  requiere: {relacionesValidas(relaciones)}
+  asegura: {res es el Strings que aparece más veces en las tuplas de relaciones (o alguno de ellos si hay empate)} -}
+
+personaConMasAmigos :: [(String, String)] -> String
+personaConMasAmigos [] = "yo"
+personaConMasAmigos l1 = personaConMasAmigosAux l1 (personas l1)
+
+personaConMasAmigosAux :: [(String, String)] -> [String] -> String
+personaConMasAmigosAux _ [] = "nadie"
+personaConMasAmigosAux _ [w] = w
+personaConMasAmigosAux l1 (x:y:xs)
+  | longitud (amigosDe x l1) > longitud (amigosDe y l1) = personaConMasAmigosAux l1 (x:xs)
+  | otherwise = personaConMasAmigosAux l1 (y:xs)
+
+longitud :: [t] -> Integer
+longitud [] =  0
+longitud (x:xs) = 1 + longitud xs 
