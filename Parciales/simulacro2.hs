@@ -75,16 +75,18 @@ problema menosVotado (formulas: seq⟨String x String⟩, votos:seq< Z >) : Stri
  asegura: {res es el candidato a presidente de formulas menos votado de acuerdo a los votos contabilizados en votos}
 -}
 
-{- menosVotado :: [(String, String)] -> [Integer] -> String
-menosVotado [(w,z)] = z
-menosVotado ((a,b):xs) (p:ps)
-  | 
+menosVotado :: [(String, String)] -> [Integer] -> String
+menosVotado formula votos = menosVotadoAux formula votos (minimo votos)
 
+menosVotadoAux :: [(String, String)] -> [Integer] -> Integer -> String
+menosVotadoAux [] [] 0 = " "
+menosVotadoAux ((a,b):xs) (p:ps) min
+  | p == minimo (p:ps) = a
+  | otherwise = menosVotadoAux xs ps min 
 
--- seguirlo con la respuesta
 
 minimo :: [Integer] -> Integer
 minimo [x] = x
 minimo (x:y:xs)
   | x <=  y = minimo (x:xs)
-  | otherwise = minimo (y:xs) -}
+  | otherwise = minimo (y:xs)
