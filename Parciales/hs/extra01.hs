@@ -2,7 +2,7 @@
 {-# HLINT ignore "Use :" #-}
 {-# HLINT ignore "Use foldr" #-}
 module Otro where
-
+e
 {- 1) Atajaron Suplentes
 problema atajaronSuplentes (arquerosPorEquipo: seq<String X String>, goles: seq<Z>, totalGolesTorneo: Z): Z {
 	requiere: {equiposValidos(arquerosPorEquipo)}
