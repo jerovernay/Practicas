@@ -9,10 +9,24 @@ sumaAcumulada (x:y:xs) = x : sumaAcumulada (x+y:xs)
 -- 2. descomponerEnPrimos :: [Integer] -> [[Integer]] seg´un la siguiente especificaci´on:
 
 descomponerEnPrimos :: [Integer] -> [[Integer]]
-descomponerEnPrimos (x:xs) = descomponerEnPrimosAux (x:xs) []
+descomponerEnPrimos [] = []
+descomponerEnPrimos (x:xs) = [descomponer x 1]++ descomponerEnPrimos xs
+  where descomponer :: Integer -> Integer -> [Integer]
+        descomponer 1 _ = []
+        descomponer n i | mod n (nEsimoPrimo i) == 0 = nEsimoPrimo i : descomponer(div n (nEsimoPrimo i)) i
+                        | otherwise = descomponer n (i+1)
 
-descomponerEnPrimosAux :: [Integer] -> [Integer] -> [[Integer]]
-descomponerEnPrimosAux [] [] = [[]]
-descomponerEnPrimosAux [] [x] = [[x]]
-descomponerEnPrimosAux (x:xs) = factorPrimo x 2 : descomponerEnPrimosAux xs []
-                        where factorPrimo n =
+
+esPrimo :: Integer -> Bool
+esPrimo n = n > 1 && menorDivisor n == n
+
+menorDivisor :: Integer -> Integer 
+menorDivisor n = menorDivisor2 n 2
+  where menorDivisor2 n i | mod n i == 0 = i
+                          | otherwise = menorDivisor2 n (i + 1)
+
+nEsimoPrimo :: Integer -> Integer
+nEsimoPrimo n = nEsimoPrimoAux n 0 1
+  where nEsimoPrimoAux n c x | n == c = x - 1
+                             | esPrimo c = nEsimoPrimoAux n (c + 1) (x +1)
+                             | otherwise = nEsimoPrimoAux n c (x + 1)
