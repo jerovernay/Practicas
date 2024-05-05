@@ -60,7 +60,7 @@ amigosDe persona ((a,b):xs) = amigosDeAux persona ((a,b):xs) []
 
 amigosDeAux :: String -> [(String,String)] -> [String] -> [String] 
 amigosDeAux _ [] [] = []
-amigosDeAux _ [x] y = y
+amigosDeAux _ [x] y = y                                -- fijarse bien el caso base, por ejem que no tenga ninguna amigo en comun
 amigosDeAux persona ((a,b):xs) l1
   | persona == a && not (pertenece b l1) = amigosDeAux persona xs (b:l1)
   | persona == b && not (pertenece a l1) = amigosDeAux persona xs (a:l1)
