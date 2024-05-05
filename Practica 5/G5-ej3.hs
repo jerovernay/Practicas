@@ -73,5 +73,15 @@ multiplosDeN n (x:xs)
 ordenar :: [Integer] -> [Integer]
 ordenar [] = []
 ordenar [x] = [x]
-ordenar (x:y:xs) | x > y = y : ordenar (x:xs)
-                 | otherwise = x : ordenar (y:xs)                                --Repasarlo e intentarlo bien nuevamente
+ordenar l1 = minimo l1: ordenar(quitarUno (minimo l1) l1)
+
+quitarUno :: Integer -> [Integer] -> [Integer]
+quitarUno n (x:xs)
+  | n == x = xs
+  | otherwise = x : quitarUno n xs
+
+minimo :: [Integer] -> Integer
+minimo [x] = x
+minimo (x:y:xs)
+  | x <= y = minimo (x:xs)
+  | otherwise = minimo (y:xs)
