@@ -41,7 +41,7 @@ def es_multiplo(n : int , m : int) -> bool:
     else:
         return False
     
-""" n: int = int(input("ingrese a "))
+n: int = int(input("ingrese a "))
 m: int = int(input("ingrese b "))
 print(es_multiplo(n,m)) """
 
