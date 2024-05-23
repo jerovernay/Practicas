@@ -60,5 +60,19 @@ def elRango(num):
 num: int = int(input("el numero es "))
 print(elRango(num))
 
-#f) HACER
+#f) 
 
+def jubilaciones_festivas( sexo , edad ):
+    if (edad >= 65):
+        return "de vacas con los nietos"
+    elif (edad <= 18):
+        return "De vacas con los abues"
+    elif sexo == 'F' and (edad < 60):
+        return "Toca Laburar"
+    else: 
+        sexo == 'M' and (edad < 65) 
+        return "Toca Laburar"
+    
+sexo: chr = input("Masculino o Femenino: ")
+edad: int = int(input("Edad: "))
+print(jubilaciones_festivas(sexo, edad))
