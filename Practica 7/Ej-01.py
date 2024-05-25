@@ -135,4 +135,4 @@ def seguridad(c:str) -> str:
     else:
         return "Amarilla"
 
-print(seguridad("Sonia2901"))
+print(seguridad("Brasil2005"))
