@@ -48,3 +48,5 @@ def suma_total(s: list) -> int:
 
 print(suma_total(seq1))
 print(suma_total(seq2))
+
+
