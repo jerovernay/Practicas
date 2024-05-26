@@ -135,4 +135,38 @@ def seguridad(c:str) -> str:
     else:
         return "Amarilla"
 
-print(seguridad("Bra")) #No me queda nunca el verde 
+#print(seguridad("Bra")) #No me queda nunca el verde 
+
+#8) 
+
+def saldoTotal(m: list) -> int:
+    saldo: int = 0
+    for movimiento in m:
+        if movimiento[0] == "I":
+            saldo += movimiento[1]
+        elif movimiento[0] == "R":
+            saldo -= movimiento[1]
+    return saldo
+
+#print(saldoTotal([("I", 2000), ("R", 20), ("R", 1000), ("I", 300)]))
+
+#9)
+
+def esVocal(char: str) -> bool:
+    vocales: list = ["a", "e", "i", "o", "u", "A", "E", "I", "O", "U"]
+    if pertenece(vocales, char):
+        return True
+    return False
+
+def cantVocales3(palabra: str) -> bool:
+    cantVocales: int = 0
+    for char in palabra:
+        if esVocal(char):
+            cantVocales += 1
+    if cantVocales >= 3:
+        return True
+    else:
+        return False
+    
+print(cantVocales3("Bueno"))
+print(cantVocales3("Malo"))
