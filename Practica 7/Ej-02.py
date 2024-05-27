@@ -69,3 +69,12 @@ print(daVueltaStr(p))
 
 #6)
 
+def eliminar_repetidos(cadena: list) -> list:
+    cadenaNueva: list = []
+    for letra in cadena:
+        if not pertenece(cadenaNueva, letra):
+            cadenaNueva.append(letra)
+    return cadenaNueva
+
+c: list = ["e", "x", "c", "e", "l", "e", "n", "t", "e"]
+print(eliminar_repetidos(c))
