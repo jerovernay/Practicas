@@ -93,26 +93,29 @@ def es_palindromo(p: str) -> bool:          #ana anita lava la tina
 
 #7)
 
+
+#7)
+
 def hay_Minus(c:str) -> bool:
+    res: bool = False
     for char in c:
-        if ("a" <= char <= "z"):
-            return True
-        else:
-            return False
+        if ("a" <= char) and (char <= "z"):
+            res = True
+    return res
 
 def hay_Mayus(c: str) -> bool:
+    res: bool = False
     for char in c:
-        if ("A" <= char <= "Z"):
-            return True
-        else:
-            return False
+        if ("A" <= char) and (char <= "Z"):
+            res = True
+    return res
 
-def hay_Num(c: str) -> bool:
+def hay_Num(c: str) -> bool:                    #chequea existencia
+    res: bool = False
     for char in c:
-        if ("0" <= char <= "9"):
-            return True
-        else:
-            return False
+        if ("0" <= char) and (char <= "9"):
+            res = True
+    return res    
 
 def esVerde(c:str) -> bool:
     if len(c) > 8:
@@ -135,7 +138,7 @@ def seguridad(c:str) -> str:
     else:
         return "Amarilla"
 
-#print(seguridad("Bra")) #No me queda nunca el verde 
+print(seguridad("Brasil5281")) 
 
 #8) 
 
