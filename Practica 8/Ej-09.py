@@ -1,7 +1,7 @@
 from queue import LifoQueue as Pila 
 
 def cantidad_elementos(pila: Pila) -> int:
-    pilaNueva = Pila
+    pilaNueva = Pila()
     c: int = 0
 
     while not pila.empty():
