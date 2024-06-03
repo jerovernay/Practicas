@@ -1,0 +1,47 @@
+inventario: dict = {}
+
+def agregar_inventario(inventario: dict, nombre: str, precio: int, cantidad: int): # -> dict[dict[nombre, precio, cantidad]]
+    
+    if nombre not in inventario:
+        inventario[nombre] = {'nombre': nombre, 'precio': precio, 'cantidad': cantidad}  
+    
+agregar_inventario(inventario, "Manzanas", 50, 25)
+agregar_inventario(inventario, "Bananas", 30, 15)
+agregar_inventario(inventario, "Sandia", 15, 45)
+agregar_inventario(inventario, "Pomelo", 75, 20)
+
+
+def actualizar_stock(inventario: dict, nombre: str, cantidad: int):
+    productos = inventario.keys()
+
+    for producto in productos:
+        if producto == nombre:
+            inventario[producto]['cantidad'] += cantidad
+
+
+actualizar_stock(inventario, "Manzanas", 25)
+
+def actualizar_precio(inventario: dict, nombre: str, precio: int):
+    productos = inventario.keys()
+
+    for producto in productos:
+        if producto == nombre:
+            inventario[producto]['precio'] = precio
+
+actualizar_precio(inventario, "Bananas", 20)
+
+def calcular_valor_inventario(inventario: dict) -> float:
+    valor: float = 0
+    productos = inventario.keys()
+    
+    
+    for producto in productos:
+            precioIndividual = inventario[producto]['precio'] 
+            cantIndividual = inventario[producto]['cantidad']
+            valor += cantIndividual * precioIndividual
+
+    return valor
+
+print(inventario)
+print()
+print(calcular_valor_inventario(inventario)) #4975
