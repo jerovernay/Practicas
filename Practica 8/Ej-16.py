@@ -12,7 +12,7 @@ def armar_secuencia_de_bingo() -> Cola[int]:
     bolillero: list[int] = list(range(100))    
 
     for i in range(len(bolillero)):
-        num: int = random.choice(bolillero)
+        num: int = random.shuffle(bolillero)
         bolillero.remove(num)
         secuencia.put(num)
 
