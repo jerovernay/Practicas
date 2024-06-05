@@ -1,8 +1,9 @@
-def splitRead(texto, limites: str =(' ', '\n', ',', '.', '!', '?')):
+def splitRead(texto):
     """
     Esta función toma una cadena `text` y la divide en una lista de cadenas utilizando
     los caracteres en `delimiters` como separadores. En Texto, se busca lo dado por file.read()
     """
+    limites: str =(' ', '\n', ',', '.', '!', '?')
     lista = []
     word = ''
 
@@ -28,11 +29,12 @@ palabras = splitRead(contenido)
 print(palabras)    
 
 
-def splitReadlines(texto, limites: str =(' ', '\n', ',', '.', '!', '?')):
+def splitReadlines(texto):
     """
     Esta función toma una lista de líneas `lines` y la divide en una lista de cadenas
     utilizando los caracteres en `delimiters` como separadores.
     """
+    limites: str =(' ', '\n', ',', '.', '!', '?')
     lista = []
 
     for line in lines:
