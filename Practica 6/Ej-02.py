@@ -43,7 +43,7 @@ def es_multiplo(n : int , m : int) -> bool:
     
 n: int = int(input("ingrese a "))
 m: int = int(input("ingrese b "))
-print(es_multiplo(n,m)) """
+print(es_multiplo(n,m)) 
 
 #Ej 6 
 

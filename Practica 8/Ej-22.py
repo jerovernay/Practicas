@@ -27,6 +27,7 @@ def visitar_sitio(historiales: dict[str, Pila[str]], usuario:str , sitio: str):
 
     if usuario not in historiales:
         historiales[usuario] = Pila()
+        
     historiales[usuario].put(sitio)
 
 def navegar_atras(historiales: dict[str, Pila[str]], usuario:str):

@@ -45,3 +45,4 @@ def calcular_valor_inventario(inventario: dict) -> float:
 print(inventario)
 print()
 print(calcular_valor_inventario(inventario)) #4975
+
