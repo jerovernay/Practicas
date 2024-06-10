@@ -21,6 +21,28 @@ def imprimir_historial(historiales):
 
         print()
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 historiales: dict = {}
 
 def visitar_sitio(historiales: dict[str, Pila[str]], usuario:str , sitio: str):
@@ -46,4 +68,4 @@ navegar_atras(historiales, "usuario2")
 visitar_sitio(historiales, "usuario1", "Instagram") #chequeo si en realidad esta en el orden correcto dps de imprimirlo
 navegar_atras(historiales, "usuario1")
 
-print(imprimir_historial(historiales))
+imprimir_historial(historiales)

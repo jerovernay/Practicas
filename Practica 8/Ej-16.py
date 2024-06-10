@@ -16,7 +16,7 @@ def armar_secuencia_de_bingo() -> Cola[int]:
 
     random.shuffle(bolillero)
     
-    for b in bolillero 
+    for b in bolillero: 
         secuencia.put(b)
 
     print(bolillero)
