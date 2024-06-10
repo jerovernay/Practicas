@@ -192,7 +192,7 @@ def cuenta_posiciones_por_nacion(naciones: list[str], torneos: dict[int, list[st
         listado[nacion] = [0]*len(naciones)
 
     for ano in torneos.keys():
-        for i in range(len(torneos[ano])):
+        for i in range(len(torneos[ano])):  
             listado[torneos[ano][i]][i] += 1
     
     return listado
